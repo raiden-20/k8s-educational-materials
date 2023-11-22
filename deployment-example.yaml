@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      pod: pod-example
+  template:
+    metadata:
+      labels:
+        pod: pod-example
+    spec:
+      containers:
+        - image: nginx:1.12
+          name: nginx
+          ports:
+            - containerPort: 80
